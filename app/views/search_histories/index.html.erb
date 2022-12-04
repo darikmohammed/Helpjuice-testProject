@@ -1,0 +1,10 @@
+<div>
+  <%= link_to '< Back', articles_path%>
+</div>
+<h1>SearchHistories</h1>
+<% @search_histories.each do |history|%>
+  <div class= 'card'>
+    <h4>Search value: <%= history.search_string%></h4>
+    <p>User ID: <%= history.user.id%> </p>
+  </div>
+<%end%>
