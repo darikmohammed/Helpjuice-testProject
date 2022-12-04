@@ -1,15 +1,17 @@
-<div id="<%= dom_id article %>">
-    <p>
+<div id="<%= dom_id article %>" class="card flex-col">
+    <div class='flex-row gap'>
+      <div class='author-avatar'>
+      <img class='author-avatar' src="https://thumbs.dreamstime.com/b/avatar-van-de-geekmens-104871313.jpg" alt="author image"></div>
+      <h4>
+        <%= article.publisher %>
+      </h5>
+
+      <h6>
+        <strong>year:</strong>
+        <%= article.pbulished_year %>
+      </h6>
+    </div>
+    <h3>
       <%= link_to article.title, article_path(article) %>
-    </p>
-
-    <p>
-      <strong>By:</strong>
-      <%= article.publisher %>
-    </p>
-
-    <p>
-      <strong>year:</strong>
-      <%= article.pbulished_year %>
-    </p>
+    </h3>
 </div>

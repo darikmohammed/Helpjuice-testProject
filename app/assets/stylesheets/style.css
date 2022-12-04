@@ -7,24 +7,55 @@ body {
 
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.author-avatar {
+  width: 2rem;
+  height: 2rem;
+  background-color: #c47c6a;
+  border: 1px solid #6f6d6d;
+  border-radius: 50%;
+}
+
 .btn {
   color: white;
-  background-color: rgb(236, 103, 68);
+  background-color: #ec6744;
   padding: 0.7rem 1.5rem;
   border: none;
   border-radius: 4rem;
+}
+
+.card {
+  border-bottom: 1px solid #979393;
 }
 
 .flex-col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap {
   gap: 1rem;
+}
+
+.margin-top {
+  margin-top: 1rem;
 }
 
 .self-end {
   align-self: flex-end;
 }
+
 
 .text-field {
   padding: 1rem;
