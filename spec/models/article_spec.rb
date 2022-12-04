@@ -11,12 +11,17 @@ RSpec.describe Article, type: :model do
     @article_post.title = nil
     expect(@article_post).to_not be_valid
   end
-  it 'should have a title' do
+  it 'should have a publisher name' do
     @article_post.publisher = nil
     expect(@article_post).to_not be_valid
   end
-  it 'should have a title' do
+  it 'should have a publisher year' do
     @article_post.pbulished_year = nil
+    expect(@article_post).to_not be_valid
+  end
+
+  it 'should have a publisher year as integer' do
+    @article_post.pbulished_year = 'hello'
     expect(@article_post).to_not be_valid
   end
 end
