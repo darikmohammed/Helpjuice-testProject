@@ -15,8 +15,7 @@ a {
 .author-avatar {
   width: 2rem;
   height: 2rem;
-  background-color: #c47c6a;
-  border: 1px solid #6f6d6d;
+  border: 1px solid #c47c6a;
   border-radius: 50%;
 }
 

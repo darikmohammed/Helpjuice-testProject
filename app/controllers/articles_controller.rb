@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     @articles = if params[:query].present?
-                  Article.where('lower(title) LIKE ?', "#{params[:query].downcase}%")
+                  Article.where('lower(title) LIKE ?', "%#{params[:query].downcase}%")
                 else
                   Article.all
                 end
