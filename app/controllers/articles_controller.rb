@@ -4,9 +4,6 @@ class ArticlesController < ApplicationController
 
   def current_visitor
     @current_visitor ||= User.find_by(id: session[:visitor_id]) || create_current_visitor
-    p @current_visitor
-    puts 'And'
-    p session[:visitor_id]
   end
 
   def create_current_visitor
@@ -24,6 +21,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
+    store_search_history(params[:query]) if params[:query].present?
     @articles = if params[:query].present?
                   Article.where('lower(title) LIKE ?', "%#{params[:query].downcase}%")
                 else
@@ -35,6 +33,24 @@ class ArticlesController < ApplicationController
     else
       render :index
     end
+  end
+
+  def store_search_history(search_data)
+    search_history = SearchHistory.where(user: @current_visitor)
+    p search_history
+    single_search = search_related(search_history, search_data)
+    if single_search 
+      single_search.update(search_string: search_data)
+    else
+      SearchHistory.create(search_string: search_data, user: @current_visitor)
+    end
+  end
+
+  def search_related(search_history, search_data)
+    search_history.each do |history|
+      return history if search_data.include? history.search_string
+    end
+    nil
   end
 
   # GET /articles/1 or /articles/1.json
