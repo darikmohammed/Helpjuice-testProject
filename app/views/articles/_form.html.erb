@@ -11,22 +11,14 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class='flex-col gap'>  
+      <%= form.text_field :title, class: 'text-field', placeholder: 'Article Title' %>
+
+      <%= form.text_field :publisher, class: 'text-field', placeholder: 'Article Publisher' %>
+
+      <%= form.number_field :pbulished_year, class: 'text-field', placeholder: 'Published Year' %>
+
+      <%= form.submit 'Create Article', class: 'btn' %>
   </div>
 
-  <div>
-    <%= form.label :publisher, style: "display: block" %>
-    <%= form.text_field :publisher %>
-  </div>
-
-  <div>
-    <%= form.label :pbulished_year, style: "display: block" %>
-    <%= form.number_field :pbulished_year %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
