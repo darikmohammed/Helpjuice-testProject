@@ -1,13 +1,14 @@
 <p style="color: green"><%= notice %></p>
+<div class='flex-col'>
+  <h1>Articles</h1>
+  <%= form_with(url: articles_path, class: 'flex-col',method: :get, data:{ controller: 'search-form', turbo_frame: 'articles', turbo_action: 'advance'}) do |f|%>
+    <%= f.label :query, 'Search for article'%>
+    <%= f.text_field :query, class: 'text-field',data: {action:'input->search-form#search'}%>
 
-<h1>Articles</h1>
-<%= form_with(url: articles_path, method: :get, data:{ controller: 'search-form', turbo_frame: 'articles', turbo_action: 'advance'}) do |f|%>
-  <%= f.label :query, 'Search for article'%>
-  <%= f.text_field :query, data: {action:'input->search-form#search'}%>
+    <%= f.submit 'Search', class: 'btn self-end'%>
+  <%end%>
 
-  <%= f.submit 'Search'%>
-<%end%>
+  <%= render 'articles', articles: @articles%>
 
-<%= render 'articles', articles: @articles%>
-
-<%= link_to "New article", new_article_path %>
+  <%= link_to "New article", new_article_path %>
+</div>
