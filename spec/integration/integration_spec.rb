@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Integration', type: :system do
+  before(:all) do
+    Rails.application.load_seed
+  end
+
   before(:each) do
     @user = User.new(ref: 1)
     @user.save
@@ -19,26 +23,11 @@ RSpec.describe 'Integration', type: :system do
       expect(current_path).to eq(new_article_path)
     end
 
-    # it 'should redirect to add new article' do
-    #   visit '/'
-    #   find('a', text: 'New article').click
-    #   sleep(0.1)
-    #   fill_in "title",	with: "What is ruby on rails?" 
-    #   fill_in "publisher",	with: "Tester"
-    #   fill_in "pbulished_year",	with: 2020  
-
-    #   find('input', text: 'Create Article').click
-    #   sleep(0.1)
-
-    #   visit '/'
-    #   expect(page.body).to include('What is ruby on rails?')
-
-    # end
-    # it 'show the search Items' do
-    #   visit '/'
-    #   fill_in "query",	with: "How is" 
-    #   sleep(0.3)
-    #   expect(page.body).to include('What is a good car?')
-    # end
+    it 'show the search Items' do
+      visit '/'
+      fill_in 'query',	with: 'How is'
+      sleep(0.3)
+      expect(page.body).to include('How is Emil Hajric doing?')
+    end
   end
 end

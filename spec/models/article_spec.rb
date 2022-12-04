@@ -4,7 +4,7 @@ RSpec.describe Article, type: :model do
   before(:each) do
     @user = User.new(ref: '1')
     @user.save
-    @article_post = Article.new(title: 'article title', publisher: 'article publisher', pbulished_year: 1990); 
+    @article_post = Article.new(title: 'article title', publisher: 'article publisher', pbulished_year: 1990)
   end
 
   it 'should have a title' do
