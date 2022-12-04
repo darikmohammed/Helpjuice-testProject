@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
     search_history = SearchHistory.where(user: @current_visitor)
     p search_history
     single_search = search_related(search_history, search_data)
-    if single_search 
+    if single_search
       single_search.update(search_string: search_data)
     else
       SearchHistory.create(search_string: search_data, user: @current_visitor)
