@@ -1,12 +1,10 @@
-# frozen_string_literal: true
-
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
 
   # GET /articles or /articles.json
   def index
     @articles = if params[:query].present?
-                  Article.where('name LIKE ?', "#{params[:query]}%")
+                  Article.where('title LIKE ?', "#{params[:query]}%")
                 else
                   Article.all
                 end

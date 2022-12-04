@@ -4,6 +4,8 @@
 <%= form_with(url: articles_path, method: :get, data:{turbo_frame: 'articles'}) do |f|%>
   <%= f.label :query, 'Search for article'%>
   <%= f.text_field :query%>
+
+  <%= f.submit 'Search'%>
 <%end%>
 
 <%= render 'articles', articles: @articles%>
