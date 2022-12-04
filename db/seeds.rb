@@ -6,3 +6,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Article.create(title: 'What is a car?', publisher: 'Emil Hajric', pbulished_year: 1993)
+Article.create(title: 'How is Emil Hajric doing?', publisher: 'Elon Musk', pbulished_year: 1993)
+Article.create(title: 'Some defination of classes in Objec oriented programming?', publisher: 'Emil Hajric', pbulished_year: 1993)
+Article.create(title: 'Why Ruby on Rails?', publisher: 'Unkown ', pbulished_year: 2003)
+Article.create(title: 'Learning THREE JS is good thing to do now.', publisher: 'Darik Mohammed', pbulished_year: 2021)
+
