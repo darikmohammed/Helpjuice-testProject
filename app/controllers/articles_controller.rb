@@ -8,6 +8,12 @@ class ArticlesController < ApplicationController
                 else
                   Article.all
                 end
+
+    if turbo_frame_request?
+      render partial: 'articles', locals: {articles: @articles}
+    else
+      render :index
+    end
   end
 
   # GET /articles/1 or /articles/1.json

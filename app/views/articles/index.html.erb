@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Articles</h1>
-<%= form_with(url: articles_path, method: :get, data:{turbo_frame: 'articles'}) do |f|%>
+<%= form_with(url: articles_path, method: :get, data:{ controller: 'search-form', turbo_frame: 'articles', turbo_action: 'advance'}) do |f|%>
   <%= f.label :query, 'Search for article'%>
-  <%= f.text_field :query%>
+  <%= f.text_field :query, data: {action:'input->search-form#search'}%>
 
   <%= f.submit 'Search'%>
 <%end%>
