@@ -1,5 +1,26 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
+  before_action :current_visitor
+
+  def current_visitor
+    @current_visitor ||= User.find_by(id: session[:visitor_id]) || create_current_visitor
+    p @current_visitor
+    puts 'And'
+    p session[:visitor_id]
+  end
+
+  def create_current_visitor
+    last_user = User.last
+    last_user_id = if last_user.nil?
+                     0
+                   else
+                     last_user.id
+                   end
+    new_user = User.create(ref: last_user_id + 1)
+    session[:visitor_id] = new_user.id
+
+    new_user
+  end
 
   # GET /articles or /articles.json
   def index
@@ -10,7 +31,7 @@ class ArticlesController < ApplicationController
                 end
 
     if turbo_frame_request?
-      render partial: 'articles', locals: {articles: @articles}
+      render partial: 'articles', locals: { articles: @articles }
     else
       render :index
     end
