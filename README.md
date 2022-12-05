@@ -72,8 +72,8 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://helpjuice-a3i6.onrender.com)
-
+- [Render Live Demo Link](https://helpjuice-a3i6.onrender.com)
+- [Railway Live Demo](https://helpjuice-testproject-production-df19.up.railway.app/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
