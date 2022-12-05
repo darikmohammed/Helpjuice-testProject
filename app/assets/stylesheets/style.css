@@ -25,6 +25,13 @@ a {
   border: none;
   border-radius: 4rem;
 }
+.btn-destroy {
+  color: white;
+  background-color: #ac2301;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 4rem;
+}
 
 .btn:hover {
   cursor: pointer;
@@ -32,6 +39,10 @@ a {
 
 .card {
   border-bottom: 1px solid #979393;
+}
+
+.flex {
+  display: flex;
 }
 
 .flex-col {
