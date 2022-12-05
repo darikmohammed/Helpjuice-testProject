@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @article %>
+
+<div class = 'flex-col'>
+  <div class='flex gap'>
+    <%= link_to "Edit this article", edit_article_path(@article), class:'btn margin-top' %> 
+    <%= link_to "Back to articles", articles_path, class:'btn margin-top' %>
+  </div>
+
+  <%= button_to "Destroy this article", @article, method: :delete, class:'btn-destroy margin-top' %>
+</div>
