@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
   end
 
   def store_search_history(search_data)
-    search_history = SearchHistory.where(user: @current_visitor)
+    search_history = SearchHistory.where(user: @current_visitor).order('created_at')
     p search_history
     single_search = search_related(search_history, search_data)
     if single_search
